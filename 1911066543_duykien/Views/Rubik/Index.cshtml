@@ -1,0 +1,47 @@
+﻿@model IEnumerable<_1911066543_duykien.Models.Rubik>
+@{
+    ViewBag.Title = "Index";
+
+}
+<banner>
+    <img src="~/Content/images/banner.jpg" width="100%" height="30%" />
+</banner>
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("create new", "create")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="panel panel-default">
+
+            <div class="panel panel-heading">
+                <strong>@item.ten</strong>
+
+            </div>
+
+            <div class="panel-body">
+                <p><strong>Loại: </strong> @item.maloai</p>
+                <p><strong>Mô Tả: </strong> @item.mota</p>
+                <p><strong>Gía: </strong> @item.gia</p>
+                <p><strong>Hãng: </strong> @item.hang</p>
+                <p><img src="/@item.hinh" alt=" hinh thumnail" /></p>
+                <p><strong>Còn Lại: </strong> @item.soluongton</p>
+            </div>
+            <div class="panel-footer clearfix">
+                <div class=" pull-right">
+                    <a href="#" class="btn btn-primary">Oder</a>
+                    @Html.ActionLink("Read more...", "Detail", new { id = item.id }, new { @class = " btn btn-default" })
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = " btn btn-default" })
+
+                    @Html.ActionLink("edit", "edit", new { id = item.id }, new { @class = " btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
